@@ -1,0 +1,5 @@
+CRON_TZ=Europe/Oslo
+
+# Run every Monday at 11:00 Europe/Oslo time.
+# Update the path below to where run-weekly.sh actually lives on this host.
+0 11 * * 1 /absolute/path/to/skills/bug-bounty-hunter/scripts/run-weekly.sh >> ~/.bug-bounty-hunter-logs/cron.log 2>&1

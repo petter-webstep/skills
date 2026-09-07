@@ -1,0 +1,16 @@
+# Crontab for the ai-issue-implementer daily cron job.
+#
+# Install with (on the host machine, NOT inside a sandbox session):
+#   ./install-crontab.sh
+# (or merge this into your existing crontab manually with `crontab -e`).
+#
+# CRON_TZ keeps the schedule pinned to Europe/Oslo local time (11:00) across
+# CET/CEST DST changes. Requires cronie/vixie-cron (most Linux distros). If
+# your cron doesn't support CRON_TZ (e.g. macOS's built-in cron), replace
+# the line below with `TZ=Europe/Oslo` instead (applies to the whole file).
+CRON_TZ=Europe/Oslo
+
+# Run every day at 11:00 Europe/Oslo time.
+# Update the path below to where run-daily.sh actually lives on this host,
+# and edit REPO_PATH inside run-daily.sh before enabling this job.
+0 11 * * * /Users/elveblest/.agents/skills/ai-issue-implementer/scripts/run-daily.sh >> ~/.ai-issue-implementer-logs/cron.log 2>&1

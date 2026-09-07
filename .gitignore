@@ -1,0 +1,8 @@
+# OS/editor cruft
+.DS_Store
+*.swp
+*~
+
+# Compiled Go binaries (rebuilt on demand, see scripts/run-*.sh)
+ai-issue-implementer/scripts/aitool
+bug-bounty-hunter/scripts/bountyhunter/bountyhunter
