@@ -1,0 +1,20 @@
+name: User changelog check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+jobs:
+  check-user-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check USER_CHANGELOG.md was updated
+        run: |
+          .github/scripts/check-user-changelog.sh \
+            "origin/${{ github.base_ref }}" \
+            "HEAD" \
+            "${{ join(github.event.pull_request.labels.*.name, ' ') }}"
