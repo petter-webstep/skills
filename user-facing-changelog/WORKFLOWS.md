@@ -9,7 +9,9 @@ before it's written anywhere.
 1. Read the merged PR's title, description, and diff. The diff is the
    source of truth — the title may be imprecise (see "verify every
    candidate against the diff" in `SKILL.md`).
-2. Apply the shared filter. If not user-facing, stop — make no changes.
+2. Apply the shared filter, including the "actually new?" check. If not
+   user-facing, stop — make no changes. If any item is uncertain, flag it
+   and get confirmation before writing (see `SKILL.md`).
 3. Open `USER_CHANGELOG.md`'s `## Unreleased` section (create the file/
    section if missing). Read its existing bullet entries.
 4. **Grouping**: if this PR is clearly part of the same user-facing story as
@@ -43,8 +45,9 @@ before it's written anywhere.
    in `SKILL.md` — titles are not reliable enough to filter or word entries
    from. For large ranges, fan the diff reading out (e.g. subagents, one
    batch of commits each) rather than skipping it.
-   Apply the shared filter and domain-language rewrite rules above to each
-   surviving item, and group into New/Improved/Fixed under a new
+   Apply the shared filter, the "actually new?" check and the
+   domain-language rewrite rules above to each surviving item, then list
+   uncertain items for the user to confirm before writing anything, and group into New/Improved/Fixed under a new
    `## <version/tag> — <date>` heading. Expect heavier lifting here the
    longer the release cycle is — don't rush the filtering step.
 4. Prepend the new section above prior history in `USER_CHANGELOG.md`

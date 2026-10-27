@@ -83,3 +83,32 @@ rewriting:
 Only skip the diff for items that are obviously noise by type (chore/ci/
 build/test/docs) **and** whose diff stat confirms they touch no
 user-facing code.
+
+## Shared rule: confirm it is actually new before filing under New
+
+A `feat` title or a big diff does not mean users gained something. Before
+putting an item under **New**, check the removed (`-`) lines and the
+previous release: could users already do or see this before?
+
+- Same capability existed, now implemented differently or moved (e.g. a
+  marker that was always shown, now drawn as a standard annotation) → it is
+  not New. File it under **Improved** only if users would notice a
+  difference; otherwise drop it.
+- A diff that deletes and adds roughly equal amounts of code is a refactor
+  until you can point to a user-visible behavior change.
+
+## Shared rule: flag uncertain items before writing
+
+Any item whose user impact you inferred from code rather than saw stated in
+the PR body or commit message is *uncertain*. Before writing or editing
+`USER_CHANGELOG.md`, list those items to the user, each with a one-line
+reason and a proposed default (keep, reword, or drop), and wait for
+confirmation. Do not write first and mention doubts afterwards. If nothing
+is uncertain, skip this step.
+
+## Shared rule: repo-level corrections
+
+If `docs/changelog-notes.md` exists, read it alongside the glossary; it
+records past corrections (e.g. "depth-reference markers existed before;
+only their implementation changed"). When the user corrects an entry, offer
+to add a one-line note there so later runs don't repeat the mistake.
